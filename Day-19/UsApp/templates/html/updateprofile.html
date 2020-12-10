@@ -1,0 +1,23 @@
+{% extends 'html/base.html' %}
+{% block title %} Update Profile {{user.username}} {% endblock %}
+{% block content %}
+<div class="container">
+	<div class="card col-md-6 mmx-auto mt-5 shadow-lg">
+		<div class="card-body">
+			<h2 class="bg-info text-white text-center mx-2 my-2 p-2 border rounded">Update Profile</h2>
+			<form method="POST">
+				{% csrf_token %}
+				<table class="table table-borderless">
+					{% for k in h %}
+					<tr>
+						<td>{{k}}</td>
+					</tr>
+					{% endfor %}
+				</table>
+				<input type="submit" value="submit" class="btn btn-success btn-block">
+			</form>
+		</div>
+	</div>
+	<a href="{% url 'pf' %}" class="btn btn-warning">Back</a>
+</div>
+{% endblock %}
